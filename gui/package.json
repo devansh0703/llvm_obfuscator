@@ -1,0 +1,44 @@
+{
+  "name": "adaptive-obfuscator-gui",
+  "version": "1.0.0",
+  "description": "Desktop GUI for Adaptive LLVM Obfuscator",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "electron .",
+    "build": "tsc && electron-builder",
+    "build:all": "tsc && electron-builder -mwl"
+  },
+  "keywords": ["obfuscator", "llvm", "security"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "electron": "^27.0.0",
+    "electron-builder": "^24.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.0"
+  },
+  "build": {
+    "appId": "com.obfuscator.adaptive",
+    "productName": "Adaptive Obfuscator",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "public/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Development"
+    }
+  }
+}
